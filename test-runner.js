@@ -6,7 +6,7 @@ var Mocha = require('mocha'),
     path = require('path');
 
 var mocha = new Mocha();
-var testDir = './tests'
+var testDir = './tests';
 
 
 // Add each .js file to the mocha instance
@@ -45,15 +45,15 @@ emitter.run = function() {
     })
     .on('end', function() {
         emitter.report = tests;
-        emitter.emit('done', tests)
+        emitter.emit('done', tests);
     })
     .on('suite', function(s) {
       context += (s.title + separator);
 
     })
     .on('suite end', function(s) {
-      context = context.slice(0, -(s.title.length + separator.length))
-    })
+      context = context.slice(0, -(s.title.length + separator.length));
+    });
   } catch(e) {
     throw(e);
   }

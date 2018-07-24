@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 require('dotenv').load();
 
@@ -13,14 +13,14 @@ app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
-})
+});
 
 app.use(express.static(__dirname + '/public'));
 
 app.get('/hello', function (req, res) {
   var name = req.query.name || 'Guest';
   res.type('txt').send('hello ' + name);
-})
+});
 
 var travellers = function (req, res) {
   var data = {};
@@ -58,7 +58,7 @@ var travellers = function (req, res) {
       default:
         data = {
           name: 'unknown'
-        }
+        };
     }
   }
   res.json(data);
